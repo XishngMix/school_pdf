@@ -109,7 +109,7 @@ class Ui_Form(QtWidgets.QMainWindow):
             # 等待3秒，用于等待浏览器启动完成，否则可能报错
             time.sleep(5)
             browser.get(
-                "http://authserver.hnuahe.edu.cn/authserver/login?service=http%3A%2F%2Fehall.hnuahe.edu.cn%2Flogin%3Fservice%3Dhttp%3A%2F%2Fehall.hnuahe.edu.cn%2Fnew%2Findex.html%3Fbrowser%3Dno")  # ①
+                "url")  # ①
 
             def logined():
 
