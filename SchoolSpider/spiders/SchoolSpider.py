@@ -8,7 +8,7 @@ from login import *
 
 class SchoolSpider(Spider):
     name = 'SchoolSpider'
-    start_urls = ['http://authserver.hnuahe.edu.cn/authserver/login?service=http%3A%2F%2Fehall.hnuahe.edu.cn%2Flogin%3Fservice%3Dhttp%3A%2F%2Fehall.hnuahe.edu.cn%2Fnew%2Findex.html%3Fbrowser%3Dno']
+    start_urls = ['url']
 
 
     def __init__(self):
@@ -125,7 +125,7 @@ class SchoolSpider(Spider):
 
         # 将筛选用的网站转为python的json格式   同时为了使一页可以显示完毕，将单页面的信息改为了10000
         jsons = requests.get(
-            'http://ehall.hnuahe.edu.cn/publicapp/sys/bulletin/bulletin/getAllBulletin.do?pageNum=1&pageSize=10000&title=' + title + '&columnId=' +
+            'url+check.    pageNum=1&pageSize=10000&title=' + title + '&columnId=' +
             columns[column] + '&deptId=' + dep[department] + '&startTime=' + data_start + '&endTime=' + data_end + '&',
             cookies=self.login_cookies).json()
         print(jsons)
@@ -145,7 +145,7 @@ class SchoolSpider(Spider):
         print('\n=\n===================\n=\n', self.login_cookies, '\n=\n===================\n=\n', self.wid, '\n=\n===================\n=\n')
         # 开始访问登录后的内容
         for wid in self.wid:
-            c_url = 'http://ehall.hnuahe.edu.cn/publicapp/sys/bulletin/bulletin/getBulletinById.do?WID='+wid
+            c_url = 'WID='+wid
             urls.append(c_url)
             # 进入XHR的页面将数据转为py json
         for url in urls:
